@@ -19,30 +19,31 @@ if (!sessionSecret) {
   throw new Error("SESSION_SECRET is missing in .env");
 }
 
-const storage = createCookieSessionStorage({
-  cookie: {
-    name: "remix_session",
-    secure: true,
-    secrets: [sessionSecret],
-    sameSite: "lax",
-    path: "/",
-    maxAge: 60 * 60 * 24 * 30,
-    httpOnly: true,
-  },
-});
+const { commitSession, getSession, destroySession } =
+  createCookieSessionStorage({
+    cookie: {
+      name: "remix_session",
+      secure: true,
+      secrets: [sessionSecret],
+      sameSite: "lax",
+      path: "/",
+      maxAge: 60 * 60 * 24 * 30,
+      httpOnly: true,
+    },
+  });
 
 export async function createUserSession(userId: string, redirectTo: string) {
-  let session = await storage.getSession();
+  let session = await getSession();
   session.set("userId", userId);
   return redirect(redirectTo, {
     headers: {
-      "Set-Cookie": await storage.commitSession(session),
+      "Set-Cookie": await commitSession(session),
     },
   });
 }
 
 function getUserSession(request: Request) {
-  return storage.getSession(request.headers.get("Cookie"));
+  return getSession(request.headers.get("Cookie"));
 }
 
 export async function getUserId(request: Request) {
@@ -70,7 +71,7 @@ export async function logout(request: Request) {
   let session = await getUserSession(request);
   return redirect("/", {
     headers: {
-      "Set-Cookie": await storage.destroySession(session),
+      "Set-Cookie": await destroySession(session),
     },
   });
 }
