@@ -1,4 +1,5 @@
 import stylesheet from "~/styles/globals.css";
+import { Navbar } from "~/components";
 import {
   Links,
   LiveReload,
@@ -24,6 +25,7 @@ export default function App() {
         <title>It's Remix Time!</title>
       </head>
       <body>
+        <Navbar />
         <Outlet />
         <ScrollRestoration />
         <Scripts />

@@ -1,41 +1,24 @@
-import type { V2_MetaFunction } from "@remix-run/node";
-
-export const meta: V2_MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
+import { ArrowRight } from "lucide-react";
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div className="flex min-h-[75vh] items-center justify-center m-10 text-lg font-medium">
+      <div className="flex flex-col gap-2 w-72 p-10 rounded-lg bg-secondary border border-highlight">
+        <a
+          className="flex items-center gap-2 hover:translate-x-2 transition-all ease-in-out duration-100"
+          href="https://remix.run"
+        >
+          <ArrowRight />
+          <div className="hover:underline">Remix Docs</div>
+        </a>
+        <a
+          className="flex items-center gap-2 hover:translate-x-2 transition-all ease-in-out duration-100"
+          href="https://github.com/mhmdsami/its-remix-time"
+        >
+          <ArrowRight />
+          <div className="hover:underline">View the Repo</div>
+        </a>
+      </div>
     </div>
   );
 }
