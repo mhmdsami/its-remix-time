@@ -8,7 +8,6 @@ export async function signIn(username: string, password: string) {
   if (!user) return null;
 
   const passwordsMatch = await bcrypt.compare(password, user.passwordHash);
-
   if (!passwordsMatch) return null;
 
   return user;

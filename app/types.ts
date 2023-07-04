@@ -1,16 +1,17 @@
-export interface User {
+export type User = {
   id: string;
   username: string;
   passwordHash: string;
   createdAt: Date;
   createdParticipants: Participant[];
-}
+};
 
-export interface Participant {
+export type Participant = {
   id: string;
   name: string;
   email: string;
   createdAt: Date;
-  createdBy: User;
-  createdById: string;
-}
+  userId: string | null;
+};
+
+export type AddParticipant = Pick<Participant, "name" | "email">;
