@@ -1,4 +1,7 @@
 # It's Remix Time!
+![index](https://github.com/mhmdsami/its-remix-time/assets/78439283/d349e38a-5c34-469f-882d-d25c1eea909b)
+![signin](https://github.com/mhmdsami/its-remix-time/assets/78439283/4ed22de8-3e08-4ae1-bd73-880da6fd5a83)
+![dashboard-add](https://github.com/mhmdsami/its-remix-time/assets/78439283/ef914244-b6f5-42c9-9263-56d8c3609564)
 
 ## Getting started with this project
 - [Fork](https://github.com/mhmdsami/its-remix-time/fork) this repository
